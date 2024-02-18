@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CheckoutStepper from './component/Stepper';
 
 function App() {
+  const checkout_steps=[
+    {
+      name:"Customer Info",
+      component: ()=> <div>Provide your contact Dtails</div>
+  },
+  {
+    name:"Shipping Info",
+    component: ()=> <div>Enter your shippig address</div>
+  },
+  {
+    name:"Payment",
+    component: ()=> <div>Complite payment for order</div>
+  },
+  {
+    name:"Delivered",
+    component: ()=> <div>Your order has been delivered</div>
+  }
+]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <h3 className='checkout'>Order Details</h3>
+    <div>
+      <CheckoutStepper stepsConfig={checkout_steps}/>
     </div>
-  );
+    </>
+  )
 }
 
 export default App;
